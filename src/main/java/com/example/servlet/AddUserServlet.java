@@ -21,7 +21,7 @@ public class AddUserServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/add.jsp");
         try {
-            dispatcher.include(req , resp);
+            dispatcher.forward(req , resp);
         } catch (IOException e) {
             req.setAttribute("Error" , e.getMessage());
         }
@@ -40,8 +40,9 @@ public class AddUserServlet extends HttpServlet {
            req.setAttribute("user" , user);
 
            RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/add.jsp");
+
            try {
-               dispatcher.include(req , resp);
+               dispatcher.forward(req , resp);
            } catch (IOException e) {
                 req.setAttribute("Error" , e.getMessage());
            }
