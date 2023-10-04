@@ -1,9 +1,11 @@
 <%@ page import="java.util.Set" %>
 <%@ page import="com.example.User" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<html>
+<!DOCTYPE html>
+<html lang = "en">
 <body>
 <head>
+    <title>Users</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>

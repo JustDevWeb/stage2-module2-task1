@@ -21,6 +21,10 @@ public class GetUsersServlet extends HttpServlet {
 
         req.setAttribute("users", users);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/users.jsp");
-        dispatcher.include( req , resp );
+        try {
+            dispatcher.include(req , resp);
+        } catch (IOException e) {
+            req.setAttribute("Error" , e.getMessage());
+        }
     }
 }

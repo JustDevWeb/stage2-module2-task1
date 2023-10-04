@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/add")
 public class AddUserServlet extends HttpServlet {
@@ -21,7 +20,11 @@ public class AddUserServlet extends HttpServlet {
         resp.setContentType("text/html");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/add.jsp");
-        dispatcher.include(req , resp);
+        try {
+            dispatcher.include(req , resp);
+        } catch (IOException e) {
+            req.setAttribute("Error" , e.getMessage());
+        }
     }
 
     @Override
@@ -37,7 +40,12 @@ public class AddUserServlet extends HttpServlet {
            req.setAttribute("user" , user);
 
            RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/add.jsp");
-           dispatcher.include(req , resp);
+           try {
+               dispatcher.include(req , resp);
+           } catch (IOException e) {
+                req.setAttribute("Error" , e.getMessage());
+           }
+
         }
     }
 }
